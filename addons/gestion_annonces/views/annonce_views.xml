@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_gestion_annonce" model="ir.actions.act_window">
+        <field name="name">Annonces</field>
+        <field name="res_model">gestion.annonce</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Principal -->
+    <menuitem id="menu_gestion_annonce_root" name="Gestion Annonces" sequence="10"/>
+
+    <!-- Sous-menu -->
+    <menuitem id="menu_gestion_annonce"
+              name="Annonces"
+              parent="menu_gestion_annonce_root"
+              action="action_gestion_annonce"
+              sequence="10"/>
+
+    <!-- Vue Liste -->
+    <record id="view_gestion_annonce_tree" model="ir.ui.view">
+        <field name="name">gestion.annonce.tree</field>
+        <field name="model">gestion.annonce</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="auteur"/>
+                <field name="date_annonce"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire -->
+    <record id="view_gestion_annonce_form" model="ir.ui.view">
+        <field name="name">gestion.annonce.form</field>
+        <field name="model">gestion.annonce</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="auteur"/>
+                        <field name="date_annonce"/>
+                        <field name="type"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
